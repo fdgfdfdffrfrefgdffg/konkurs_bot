@@ -4,8 +4,23 @@ import data
 import keyboards.inline as iBtns
 
 async def answer_task(message: Message):
+
+    post_text = """
+❗️ <b>BEPUL NOTCOIN TARQATILYAPTI</b>
+
+ <b>Shartlar juda oddiy:</b>
+  - Do'stingiz bergan havola orqali botga tashrif buyuring.
+  - Kanallarga obuna bo'ling.
+  - Botdan ro'yhatdan o'ting
+  - Vazifalar bajarib Notcoin yig'ing va yig'ilgan Notcoinni pulga almashtiring.
+
+👇<b> Quydagi havola orqali botga tashrif buyuring.</b>
+"""
+    image_path = "animations/post.jpg"
+    await message.answer_photo(image_path, caption=post_text, parse_mode="HTML")
+
     text = f"✅ Vazifa:\n\n"
-    text += "Do'stlaringizni botga taklif qiling va har bitta do'stingiz uchun 2 ta Notcoin oling. Botdan kamida 100 ta Notcoin yechib olishingiz mumkin.\n\n"
+    text += "Ushbu postni do'stlaringizga va guruhlarga ulashing va har bir do'stingiz uchun 2 dona Notcoin qo'lga kiriting!" 
     text += f"{BOT_URL}?start={message.from_user.id}"
     await message.answer(text)
 
