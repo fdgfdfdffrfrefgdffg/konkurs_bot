@@ -7,7 +7,7 @@ import data
 
 class IsRefUser(Filter):
     async def __call__(self, message: Message):
-        return "start" in message.text and message.text[7:].isdigit()
+        return "start=" in message.text and message.text[7:].isdigit()
 
 class IsAdmin(Filter):
     async def __call__(self, message: Message):
