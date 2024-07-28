@@ -35,7 +35,7 @@ async def answer_withdraw(call: CallbackQuery, bot: Bot):
     ref_count = len(data.get_ref_count(user_id))
     if ref_count * 2 >= 100: 
         user = data.get_user(user_id)
-        await bot.send_message(ADMIN, f"❗ {user.name} yetarli miqdorda NotCoin yig'di!\n\nBalans: {ref_count * 2} NotCoin\nTelefon raqam: {user.phone}")
+        await bot.send_message(ADMIN, f"❗ {user.name} yetarli miqdorda Notcoin yig'di!\n\nBalans: {ref_count * 2} NotCoin\nTelefon raqam: {user.phone}")
         await call.answer("'✅ Siz haqingizda adminga xabar qilindi. Tez orada sizga aloqaga chiqishadi.", show_alert=True)
     else:
         await call.answer(f"Siz hali {ref_count * 2} NotCoin yig'gansiz! Kamida 100 ta NotCoin yig'ishingiz kerak!", show_alert=True)

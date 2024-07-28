@@ -11,6 +11,13 @@ class IsRefUser(Filter):
             return "start " in message.text and message.text[7:].isdigit()
         return False
 
+class IsSubDb(Filter):
+    async def __call__(self, message: Message):
+        user = data.get_user(message.from_user.id)
+        if not user:
+            return True
+        return False
+
 class IsAdmin(Filter):
     async def __call__(self, message: Message):
         return message.from_user.id == ADMIN
