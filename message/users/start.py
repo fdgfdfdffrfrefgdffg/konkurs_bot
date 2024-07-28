@@ -73,7 +73,7 @@ async def start_ref_user(message: Message, bot: Bot, state: FSMContext):
         markup = await iBtns.channels_btn(not_sub_channels, message.from_user.id, bot)
         await message.answer("Iltimos, quydagi kanallarga obuna bo'ling.", reply_markup=markup)
     else:
-        await message.reply("Keling tanishib olamiz. Ismingiz?")
+        await message.answer_animation(FSInputFile("animations/notcoin.gif"), caption="<b>Assalomu alaykum, Notcoin konkurs botga xush kelibsiz!</b>\n\nBotdan foydalanish uchun avval ro'yhatdan o'ting va ✅ Vazifa tugmasiga bosib, vazifangiz bilan tanishing hamda Notcoin yig'ishni boshlang.\n\n<b>Keling tanishib olamiz. Ismingiz?</b>", parse_mode="HTML", reply_markup=ReplyKeyboardRemove())
         await state.set_state(user_state.RegisterState.name)
 
 async def answer_not_sub_channels(message: Message, bot: Bot):

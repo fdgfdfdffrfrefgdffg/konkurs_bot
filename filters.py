@@ -8,7 +8,7 @@ import data
 class IsRefUser(Filter):
     async def __call__(self, message: Message):
         if message.text:
-            return "start=" in message.text and message.text[7:].isdigit()
+            return "start " in message.text and message.text[7:].isdigit()
         return False
 
 class IsAdmin(Filter):

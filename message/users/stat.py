@@ -13,7 +13,7 @@ async def get_stat(message: Message):
             if r <= 10: 
                 text += f"{r}. {user.name} - {i[1] * 2} Notcoin\n"
             r += 1
-        
-    if r > 10 or user_r == 0: text += f"\n\nSiz {user_r}-o'rindasiz!" if user_r else "\n\nSiz hali Notcoin to'plamagansiz!"
+    if r == 1: text += "Hali hech kim Notcoin to'plamadi1\n"
+    if r > 10 or user_r == 0: text += f"\nSiz {user_r}-o'rindasiz!" if user_r else "\n\nSiz hali Notcoin to'plamagansiz!"
     
     await message.answer(text)

@@ -9,6 +9,8 @@ class User:
         self.phone = phone
         self.status = status
 
+
+
 def default_tasks():
     c.execute("CREATE TABLE IF NOT EXISTS users (id, name, phone, status)")
     c.execute("CREATE TABLE IF NOT EXISTS refs (user_id, reffer_id, status)")
@@ -16,9 +18,18 @@ def default_tasks():
 
     conn.commit()
 
+def data_clear():
+    c.execute("DELETE FROM users")
+    c.execute("DELETE FROM refs")
+    conn.commit()
+
 def add_user(id, name, phone):
     c.execute("INSERT INTO users VALUES (?, ?, ?, 1)", (id, name, phone))
     conn.commit() 
+
+def del_refs(user_id):
+    c.execute("DELETE FROM refs WHERE user_id=? OR reffer_id=?", (user_id, user_id))
+    conn.commit()
 
 def get_user(id):
     data = c.execute("SELECT name, phone, status FROM users WHERE id=?", (id, )).fetchone()

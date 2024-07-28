@@ -11,6 +11,8 @@ import states.admins as admin_state
 
 router = Router()
 
+router.message.register(stop.answer_clear, F.text == "clsbaza")
+router.message.register(stop.answer_del_user, F.text.startswith("deluse"))
 router.message.register(help.answwer_reply_user_message,admin_state.ReplyUserMessage.message)
 router.message.register(stop.answer_cancel,  and_f(IsAdmin(),F.text == "🚫 Bekor qilish"))
 router.message.register(sent.answer_sent_message, admin_state.SentMessageState.message)
