@@ -33,7 +33,7 @@ async def answer_check_sub_channel(call: CallbackQuery, bot: Bot, state: FSMCont
 async def answer_withdraw(call: CallbackQuery, bot: Bot):
     user_id = int(call.data.split(":")[1])
     ref_count = len(data.get_ref_count(user_id))
-    if ref_count * 2 >= 1: 
+    if ref_count * 2 >= 100: 
         user = data.get_user(user_id)
         await bot.send_message(ADMIN, f"❗ {user.name} yetarli miqdorda NotCoin yig'di!\n\nBalans: {ref_count * 2} NotCoin\nTelefon raqam: {user.phone}")
         await call.answer("'✅ Siz haqingizda adminga xabar qilindi. Tez orada sizga aloqaga chiqishadi.", show_alert=True)
